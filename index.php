@@ -16,14 +16,21 @@ function display(){
         echo "<tr>";
             echo "<th>Item Name</th>";
             echo "<th>Price</td>";
+            echo "<th>Size</td>";
             echo "<th>More Info</th>";
             echo "<th>Checkout</th>";
             echo "</tr>";
     
     foreach($records as $record){
         echo "<tr>";
-        echo "<td>". $record['productName']. "</td> ";
-        echo "<td>". $record['productPrice'] . "</td>";
+        echo "<td>" . $record['productName']. "</td> ";
+        echo "<td>" . $record['productPrice'] . "</td>";
+        echo "<td>" . $record['productSize'] . "</td>";
+        echo "<td>";
+        echo "<a href='./moreinfo.php?itemId=" . $record['itemId'] . "' target='_blank'>More Info";
+        echo "</td>";
+        echo "<td> <input type='checkbox' value='" . $record['itemId'] . "' name='cart[]'> </td>";
+        
         
         echo "</td>";
         echo "</tr>";
