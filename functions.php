@@ -9,7 +9,7 @@ $dbConn = getDatabaseConnection("otterstyle");
     
     function displayCart()
     {
-        if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
+        if(isset($_SESSION['cart']))
         {
             echo "<table class = 'table'>";
             echo '<tr>';
@@ -51,10 +51,8 @@ $dbConn = getDatabaseConnection("otterstyle");
             echo "<form method = 'post'>";
             echo "<input type = 'submit' name = 'removeAll' value = 'Remove All'>";
             echo "</form>";
-            
         }
     }
-    
     function displayCategories(){
         global $dbConn;
         
@@ -65,16 +63,9 @@ $dbConn = getDatabaseConnection("otterstyle");
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         foreach ($records as $record) {
-            
-            echo "<option value='".$record["catId"]."' >" . $record["catName"] . "</option>";
-            
+        $id = $record['catId'];
+        $name = $record['catName'];
+            echo '<option value="'.$id.'">'.$name.'</option>';
         }
-        
     }
-    
-    function displayMoreFilters()
-    {
-        
-    }
-
 ?>
